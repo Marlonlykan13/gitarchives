@@ -1,0 +1,42 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+name: buildpipeline
+
+
+on:
+
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+ 
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: Check out project
+      - name: Run a one-line script
+        run: echo Hola bienvenidos al pipeline de marlon
+
+      - name: Run a multi-line script
+        run: |
+          echo pipeline 
+          time
+          touch buildPipeline.txt
+          ls -la
